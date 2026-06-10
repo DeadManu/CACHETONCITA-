@@ -1,0 +1,77 @@
+/*
+ * Hoja de estilos para la galería vertical de recuerdos.
+ * Se utiliza un fondo oscuro con un degradado radial para simular una galaxia.
+ * Las estrellas parpadean suavemente y las fotografías se centran en la pantalla.
+ */
+
+/* Reset básico para eliminar márgenes y establecer el modelo de caja */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  background: #0b022b;
+  color: #fff;
+}
+
+/* Contenedor de estrellas ocupa toda la pantalla */
+#star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* Degradado radial que simula una galaxia */
+  background: radial-gradient(circle at center, #170239 0%, #0b022b 70%, #040013 100%);
+  overflow: hidden;
+}
+
+/* Cada estrella es un punto blanco con animación de parpadeo */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* Contenedor de todas las secciones/fotos */
+#slides {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Cada sección ocupa la pantalla completa y centra su contenido */
+.slide {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Estilo para las imágenes de las diapositivas */
+.slide img {
+  max-height: 90vh;
+  max-width: 90vw;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+}

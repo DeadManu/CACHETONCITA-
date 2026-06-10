@@ -58,3 +58,21 @@ for (let i = 0; i < 120; i++) {
 setInterval(() => {
   createStar();
 }, 500);
+
+// ---------- Control de la música de fondo ----------
+// Obtenemos el botón y el elemento de audio del DOM
+const musicToggle = document.getElementById('musicToggle');
+const bgMusic = document.getElementById('bgMusic');
+
+if (musicToggle && bgMusic) {
+  // Cambia el estado de reproducción cuando se hace clic en el botón
+  musicToggle.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicToggle.textContent = '❚❚ Pausar audio';
+    } else {
+      bgMusic.pause();
+      musicToggle.textContent = '♪ Escuchar audio';
+    }
+  });
+}
